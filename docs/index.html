@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    /* Blue buttons with white arrows */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: purple; /* Bootstrap primary blue */
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-size: 60%; /* Make the arrow smaller */
+    }
+
+    /* Custom carousel container */
+    .carousel-external-arrows {
+        position: relative;
+        padding: 0 60px; /* Make space for arrows */
+    }
+
+    /* Arrow positioning */
+    .carousel-external-arrows .carousel-control-prev {
+        left: -50px; /* Move left arrow outside */
+    }
+    .carousel-external-arrows .carousel-control-next {
+        right: -50px; /* Move right arrow outside */
+    }
+
+    /* Arrow styling */
+    .carousel-external-arrows .carousel-control-prev,
+    .carousel-external-arrows .carousel-control-next {
+        width: 50px;
+        height: 50px;
+        background-color: purple;
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 1;
+    }
+
+    /* Arrow icon sizing */
+    .carousel-external-arrows .carousel-control-prev-icon,
+    .carousel-external-arrows .carousel-control-next-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .carousel-external-arrows {
+            padding: 0 30px;
+        }
+        .carousel-external-arrows .carousel-control-prev {
+            left: -30px;
+        }
+        .carousel-external-arrows .carousel-control-next {
+            right: -30px;
+        }
+
+    }
+
+    .btn {
+        background-color: purple;
+        color: white;
+    }
+
+    .cardColor {
+        background: linear-gradient(135deg, #F5F5FF 0%, #E6E6FA 50%, #D8BFD8 100%);
+    }
+
+    .text-primary {
+        color: purple;
+    }
+</style>
+<body>
+
+</body>
+</html>
