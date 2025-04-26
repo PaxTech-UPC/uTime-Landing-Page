@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="../docs/style.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+
+    <div class="container-fluid">
+        <div class="d-flex align-items-center">
+            <a class="navbar-brand d-lg-none " href="index.html"><img src="../image/logo.png" alt="logo" height="60"/></a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pricing.html">Pricing</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        More
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="about-us.html">About Us</a></li>
+                        <li><a class="dropdown-item" href="contact-us.html">Contact us</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="navbar-brand mx-auto d-none d-lg-block" href="#"><img src="../image/logo.png" alt="logo" height="60"/></a>
+                </li>
+            </ul>
+            <div class="d-flex flex-column flex-lg-row gap-2">
+                <button type="button" class="btn btn-primary" onclick="window.location.href='sign-in.html'">Sign in</button>
+                <button type="button" class="btn btn-warning ms-lg-3">Register</button>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+<section class="text-center py-5">
+    <div class="container-fluid px-4"> <!--clamp(min, prefered, max)-->
+        <h1 class="fw-bold text-wrap py-5" style="font-size: clamp(2rem, 6vw, 10rem); line-height: 1.2;">
+            PRICING
+        </h1>
+    </div>
+</section>
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4 text-center px-5">
+
+    <!-- Essential Plan -->
+    <div class="col">
+        <div class="card h-100 shadow rounded-4 border-0 p-3 cardColor">
+            <div class="card-body ">
+                <h4 class="fw-bold">Essential</h4>
+                <p class="text-muted">Start simple and stay organized</p>
+                <ul class="list-unstyled text-start mt-4 mb-4">
+                    <li>✅ Basic smart calendar</li>
+                    <li>✅ Client booking page</li>
+                    <li>✅ Reviews & ratings</li>
+                    <li>✅ Stylist profiles</li>
+                    <li>✅ 2 stylist accounts</li>
+                </ul>
+                <h5 class="fw-bold ">Free</h5>
+            </div>
+            <div class="card-footer border-0 bg-transparent">
+                <a href="pricing/essential.html" class="btn btn-primary rounded-pill">Learn more</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ProStyle Plan -->
+    <div class="col">
+        <div class="card h-100 shadow rounded-4 border-0 p-3 cardColor">
+            <div class="card-body">
+                <h4 class="fw-bold">ProStyle</h4>
+                <p class="text-muted">Level up your salon with smart tools</p>
+                <ul class="list-unstyled text-start mt-4 mb-4">
+                    <li>✅ Advanced calendar sync</li>
+                    <li>✅ WhatsApp reminders</li>
+                    <li>✅ Up to 5 stylists</li>
+                    <li>✅ Performance tracking </li>
+                    <li>✅ Priority support</li>
+                </ul>
+                <h5 class="fw-bold ">s/69.9 x month</h5>
+            </div>
+            <div class="card-footer border-0 bg-transparent">
+                <a href="pricing/prostyle.html" class="btn btn-primary rounded-pill">Learn more</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deluxe Studio Plan -->
+    <div class="col">
+        <div class="card h-100 shadow rounded-4 border-0 p-3 cardColor">
+            <div class="card-body">
+                <h4 class="fw-bold">Deluxe Studio</h4>
+                <p class="text-muted">All-in-one power for premium salons</p>
+                <ul class="list-unstyled text-start mt-4 mb-4">
+                    <li>✅ Full calendar control</li>
+                    <li>✅ Unlimited reminders</li>
+                    <li>✅ Unlimited stylists</li>
+                    <li>✅ Advanced analytics</li>
+                    <li>✅ VIP support</li>
+                </ul>
+                <h5 class="fw-bold ">s/129.9 x month</h5>
+            </div>
+            <div class="card-footer border-0 bg-transparent">
+                <a href="pricing/deluxestudio.html" class="btn btn-primary rounded-pill">Learn more</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<footer class="px-3 py-3 my-4 border-top">
+    <ul class="nav justify-content-center">
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Complaints book</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Terms & Conditions</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Privacy Policy</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Cookies Policy</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Help</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Frequent Questions</a></li>
+    </ul>
+</footer>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</body>
+</html>

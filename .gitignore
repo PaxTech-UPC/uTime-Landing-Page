@@ -1,0 +1,26 @@
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración de WebStorm / JetBrains
+.idea/
+*.iml
+
+# Archivos temporales de editores
+*.log
+*.tmp
+*.swp
+*.swo
+
+# node_modules si usas npm o bundlers (si no, puedes omitirlo)
+node_modules/
+
+# Archivos de construcción o salida (si usas alguna herramienta)
+dist/
+build/
+
+# Configuración personal del editor
+.vscode/
+
+# Archivos de entorno (si llegaras a usarlos)
+.env

@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    /* Blue buttons with white arrows */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: purple; /* Bootstrap primary blue */
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-size: 60%; /* Make the arrow smaller */
+    }
+
+    /* Custom carousel container */
+    .carousel-external-arrows {
+        position: relative;
+        padding: 0 60px; /* Make space for arrows */
+    }
+
+    /* Arrow positioning */
+    .carousel-external-arrows .carousel-control-prev {
+        left: -50px; /* Move left arrow outside */
+    }
+    .carousel-external-arrows .carousel-control-next {
+        right: -50px; /* Move right arrow outside */
+    }
+
+    /* Arrow styling */
+    .carousel-external-arrows .carousel-control-prev,
+    .carousel-external-arrows .carousel-control-next {
+        width: 50px;
+        height: 50px;
+        background-color: purple;
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 1;
+    }
+
+    /* Arrow icon sizing */
+    .carousel-external-arrows .carousel-control-prev-icon,
+    .carousel-external-arrows .carousel-control-next-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .carousel-external-arrows {
+            padding: 0 30px;
+        }
+        .carousel-external-arrows .carousel-control-prev {
+            left: -30px;
+        }
+        .carousel-external-arrows .carousel-control-next {
+            right: -30px;
+        }
+
+    }
+
+    .btn {
+        background-color: purple;
+        color: white;
+    }
+
+    .cardColor {
+        background: linear-gradient(135deg, #F5F5FF 0%, #E6E6FA 50%, #D8BFD8 100%);
+    }
+
+    .text-primary {
+        color: purple;
+    }
+</style>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+
+    <div class="container-fluid">
+        <div class="d-flex align-items-center justify-content-between">
+            <a class="navbar-brand d-lg-none " href="#"><img src="../image/logo.png" alt="logo" height="60"/> </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pricing.html">Pricing</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        More
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="about-us.html">About Us</a></li>
+                        <li><a class="dropdown-item" href="contact-us.html">Contact us</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="navbar-brand mx-auto d-none d-lg-block" href="#"><img src="../image/logo.png" alt="logo" height="60"/></a>
+                </li>
+            </ul>
+            <div class="d-flex flex-column flex-lg-row gap-2">
+                <button type="button" class="btn btn-primary" onclick="window.location.href='sign-in.html'">Sign in</button>
+                <button type="button" class="btn btn-warning ms-lg-3">Register</button>
+            </div>
+        </div>
+
+    </div>
+</nav>
+</nav>
+
+<section class="text-center py-5 mt-5">
+    <div class="container-fluid px-4"> <!--clamp(min, prefered, max)-->
+        <h1 class="fw-bold text-wrap" style="font-size: clamp(2rem, 6vw, 10rem); line-height: 1.2;">
+            Your Time is Gold<br>Let uTime Make It Shine
+        </h1>
+        <p class="mt-3" style="font-size: clamp(1rem, 2vw, 1.5rem); max-width: 700px; margin-inline: auto;">
+            Professional scheduling for professionals like you. Impress your clients, simplify your day, and elevate your service
+        </p>
+        <button type="button" class="btn btn-lg px-5 py-3 rounded-pill mt-4" onclick=window.location.href="sign-in.html">
+            Start today!
+        </button>
+    </div>
+</section>
+
+<div class="carousel-external-arrows ">
+    <div class="container-fluid px-5 my-5 container-md">
+        <div id="featuresCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Slide 1 - Smart Calendar -->
+                <div class="carousel-item active ">
+                    <div class="card mb-3 feature-card ">
+                        <div class="row g-0 h-100">
+                            <div class="col-md-4 d-flex justify-content-center align-items-center">
+                                <img src="https://files.catbox.moe/azj9dw.png" class="img-fluid rounded-start" alt="Smart Calendar">
+                            </div>
+                            <div class="col-md-8 d-flex align-items-center">
+                                <div class="card-body text-center">
+                                    <h2 class="card-title fw-bold text-wrap display-4">Smart Calendar</h2>
+                                    <p class="card-text fs-4">Manage your appointments with an intuitive calendar designed for your weekly flow. Add, edit, reschedule, and view your whole week at a glance - no confusion, no clutter.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 - Automatic Reminders -->
+                <div class="carousel-item">
+                    <div class="card mb-3 feature-card">
+                        <div class="row g-0 h-100">
+                            <div class="col-md-4 d-flex justify-content-center align-items-center">
+                                <img src="https://files.catbox.moe/oed2jq.png" class="img-fluid rounded-start" alt="Automatic Reminders">
+                            </div>
+                            <div class="col-md-8 d-flex align-items-center">
+                                <div class="card-body text-center">
+                                    <h2 class="card-title fw-bold text-wrap display-4">Automatic Reminders</h2>
+                                    <p class="card-text fs-4">uTime sends reminders to your clients automatically - so they never forget their appointment and you never lose time or income.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 - Reviews & Ratings -->
+                <div class="carousel-item">
+                    <div class="card mb-3 feature-card">
+                        <div class="row g-0 h-100">
+                            <div class="col-md-4 d-flex justify-content-center align-items-center">
+                                <img src="https://files.catbox.moe/d3d97z.png" class="img-fluid rounded-start" alt="Reviews & Ratings">
+                            </div>
+                            <div class="col-md-8 d-flex align-items-center">
+                                <div class="card-body text-center">
+                                    <h2 class="card-title fw-bold text-wrap display-4">Reviews & Ratings</h2>
+                                    <p class="card-text fs-4">Collect feedback from clients after each session. Build your reputation with verified reviews and showcase your excellence to future clients.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 4 - Stylist Profiles -->
+                <div class="carousel-item">
+                    <div class="card mb-3 feature-card">
+                        <div class="row g-0 h-100">
+                            <div class="col-md-4 d-flex justify-content-center align-items-center">
+                                <img src="https://files.catbox.moe/wwcnoy.png" class="img-fluid rounded-start" alt="Stylist Profiles">
+                            </div>
+                            <div class="col-md-8 d-flex align-items-center">
+                                <div class="card-body text-center">
+                                    <h2 class="card-title fw-bold text-wrap display-4">Stylist Profiles</h2>
+                                    <p class="card-text fs-4">Create a personalized profile with your bio, specialties, pricing, and portfolio. Help clients get to know you before they book - and build trust from the first click.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 5 - Secure Payment -->
+                <div class="carousel-item">
+                    <div class="card mb-3 feature-card">
+                        <div class="row g-0 h-100">
+                            <div class="col-md-4 d-flex justify-content-center align-items-center">
+                                <img src="https://files.catbox.moe/b3lsdy.png" class="img-fluid rounded-start" alt="Secure Payment">
+                            </div>
+                            <div class="col-md-8 d-flex align-items-center">
+                                <div class="card-body text-center">
+                                    <h2 class="card-title fw-bold text-wrap display-4">Secure Payment</h2>
+                                    <p class="card-text fs-4">Accept payments online with confidence. uTime offers seamless checkout options for clients and ensures your transactions are encrypted and secure.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carousel Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#featuresCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#featuresCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+            <!-- Carousel Indicators -->
+            <div class="carousel-indicators position-static mt-3">
+                <button type="button" data-bs-target="#featuresCarousel" data-bs-slide-to="0" class="active bg-dark" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#featuresCarousel" data-bs-slide-to="1" class="bg-dark" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#featuresCarousel" data-bs-slide-to="2" class="bg-dark" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#featuresCarousel" data-bs-slide-to="3" class="bg-dark" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#featuresCarousel" data-bs-slide-to="4" class="bg-dark" aria-label="Slide 5"></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br/>
+<br/>
+<div class="row gx-5 px-5">
+    <div class="col-sm-6">
+        <div class="card p-5 pb-1 bg-light cardColor" >
+            <div class="card-body">
+                <h5 class="card-title font-weight-bold">Look & book</h5>
+                <p class="card-text">Explore talented sylists and barbers near you, view their work, read reviews, and book in just a few taps. Smooth, fast, and totally stress-free</p>
+                <a href="#" class="btn btn-primary">Book now</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card p-5 pb-1 bg-light cardColor" >
+            <div class="card-body">
+                <h5 class="card-title font-weight-bold">Glow up your business</h5>
+                <p class="card-text">From appointment scheduling to secure payments and building your online presence. ALl in one sleek, easy-to-use platform.</p>
+                <a href="#" class="btn btn-primary">Start now</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="py-5">
+    <div class="container">
+        <h1 class="display-4 fw-bold text-center mb-5">The journey starts here</h1>
+
+        <div class="row g-4 justify-content-center">
+            <!-- Card 1 -->
+            <div class="col-md-10 col-lg-8">
+                <div class="card mb-3 border-0 shadow-sm">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-md-1 text-center py-3 py-md-0">
+                            <span class="display-6 fw-bold">1</span>
+                        </div>
+                        <div class="col-md-11">
+                            <div class="card-body">
+                                <h5 class="card-title fs-4">Look for your favorite stylist</h5>
+                                <p class="card-text text-muted">Browse our directory of professional stylists and find your perfect match.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-10 col-lg-8">
+                <div class="card mb-3 border-0 shadow-sm">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-md-1 text-center py-3 py-md-0">
+                            <span class="display-6 fw-bold">2</span>
+                        </div>
+                        <div class="col-md-11">
+                            <div class="card-body">
+                                <h5 class="card-title fs-4">Check their availability</h5>
+                                <p class="card-text text-muted">View real-time availability and select a time that works for you.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-md-10 col-lg-8">
+                <div class="card mb-3 border-0 shadow-sm">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-md-1 text-center py-3 py-md-0">
+                            <span class="display-6 fw-bold">3</span>
+                        </div>
+                        <div class="col-md-11">
+                            <div class="card-body">
+                                <h5 class="card-title fs-4">Save the date and choose payment</h5>
+                                <p class="card-text text-muted">Secure your appointment with our easy booking system and payment options.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col-md-10 col-lg-8">
+                <div class="card mb-3 border-0 shadow-sm">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-md-1 text-center py-3 py-md-0">
+                            <span class="display-6 fw-bold">4</span>
+                        </div>
+                        <div class="col-md-11">
+                            <div class="card-body">
+                                <h5 class="card-title fs-4">You're good to go. Enjoy!</h5>
+                                <p class="card-text text-muted">Sit back and relax - we'll send you reminders before your appointment.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <button class="btn btn-primary btn-lg px-5 py-3 rounded-pill fw-bold">¡Start now!</button>
+        </div>
+    </div>
+</section>
+
+<footer class="px-3 py-3 my-4 border-top text-white">
+    <ul class="nav justify-content-center">
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Complaints book</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Terms & Conditions</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-white ">Privacy Policy</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Cookies Policy</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Help</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Frequent Questions</a></li>
+    </ul>
+</footer>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</body>
+</html>
