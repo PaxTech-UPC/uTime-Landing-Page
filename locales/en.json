@@ -1,0 +1,165 @@
+{
+  "nav": {
+    "home": "Home",
+    "pricing": "Pricing",
+    "more": "More",
+    "aboutUs": "About Us",
+    "contactUs": "Contact Us",
+    "signIn": "Sign In",
+    "register": "Register",
+    "language": "ES"
+  },
+  "footer": {
+    "complaintsBook": "Complaints Book",
+    "termsConditions": "Terms & Conditions",
+    "privacyPolicy": "Privacy Policy",
+    "cookiesPolicy": "Cookies Policy",
+    "help": "Help",
+    "frequentQuestions": "Frequent Questions"
+  },
+  "home": {
+    "hero": {
+      "title": "Your Time is Gold. Let uTime Make It Shine",
+      "subtitle": "Professional scheduling for professionals like you. Impress your clients, simplify your day, and elevate your service",
+      "cta": "Start today!"
+    },
+    "features": {
+      "smartCalendar": {
+        "title": "Smart Calendar",
+        "description": "Manage your appointments with an intuitive calendar designed for your weekly flow. Add, edit, reschedule, and view your whole week at a glance - no confusion, no clutter."
+      },
+      "autoReminders": {
+        "title": "Automatic Reminders",
+        "description": "uTime sends reminders to your clients automatically - so they never forget their appointment and you never lose time or income."
+      },
+      "reviews": {
+        "title": "Reviews & Ratings",
+        "description": "Collect feedback from clients after each session. Build your reputation with verified reviews and showcase your excellence to future clients."
+      },
+      "stylistProfiles": {
+        "title": "Stylist Profiles",
+        "description": "Create a personalized profile with your bio, specialties, pricing, and portfolio. Help clients get to know you before they book - and build trust from the first click."
+      },
+      "securePayment": {
+        "title": "Secure Payment",
+        "description": "Accept payments online with confidence. uTime offers seamless checkout options for clients and ensures your transactions are encrypted and secure."
+      }
+    },
+    "cards": {
+      "lookBook": {
+        "title": "Look & Book",
+        "description": "Explore talented stylists and barbers near you, view their work, read reviews, and book in just a few taps. Smooth, fast, and totally stress-free",
+        "cta": "Book now"
+      },
+      "business": {
+        "title": "Glow up your business",
+        "description": "From appointment scheduling to secure payments and building your online presence. All in one sleek, easy-to-use platform.",
+        "cta": "Start now"
+      }
+    },
+    "journey": {
+      "title": "The journey starts here",
+      "steps": [
+        {
+          "number": "1",
+          "title": "Look for your favorite stylist",
+          "description": "Browse our directory of professional stylists and find your perfect match."
+        },
+        {
+          "number": "2",
+          "title": "Check their availability",
+          "description": "View real-time availability and select a time that works for you."
+        },
+        {
+          "number": "3",
+          "title": "Save the date and choose payment",
+          "description": "Secure your appointment with our easy booking system and payment options."
+        },
+        {
+          "number": "4",
+          "title": "You're good to go. Enjoy!",
+          "description": "Sit back and relax - we'll send you reminders before your appointment."
+        }
+      ],
+      "cta": "Start now!"
+    }
+  },
+  "about": {
+    "title": "About us",
+    "content": [
+      "PaxTech is a startup led by students from Universidad Peruana de Ciencias Aplicadas, dedicated to developing innovative technological solutions.",
+      "In a world where digitalization is key to success, PaxTech empowers beauty professionals with an intuitive and automated platform that improves the experience for both them and their clients.",
+      "Through our solution, we seek to revolutionize the way stylists organize their schedule, reducing time loss and increasing their visibility in the market."
+    ]
+  },
+  "contact": {
+    "title": "CONTACT US",
+    "uTime": "uTime",
+    "paxTech": "PaxTech",
+    "sales": "Sales team",
+    "support": "Support team",
+    "form": {
+      "title": "GET IN TOUCH",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "E-mail",
+      "comment": "Comment",
+      "submit": "Contact me"
+    }
+  },
+  "pricing": {
+    "title": "PRICING",
+    "plans": {
+      "essential": {
+        "name": "Essential",
+        "description": "Start simple and stay organized",
+        "features": [
+          "Basic smart calendar",
+          "Client booking page",
+          "Reviews & ratings",
+          "Stylist profiles",
+          "2 stylist accounts"
+        ],
+        "price": "Free",
+        "cta": "Learn more"
+      },
+      "proStyle": {
+        "name": "ProStyle",
+        "description": "Level up your salon with smart tools",
+        "features": [
+          "Advanced calendar sync",
+          "WhatsApp reminders",
+          "Up to 5 stylists",
+          "Performance tracking",
+          "Priority support"
+        ],
+        "price": "s/69.9 per month",
+        "cta": "Learn more"
+      },
+      "deluxe": {
+        "name": "Deluxe Studio",
+        "description": "All-in-one power for premium salons",
+        "features": [
+          "Full calendar control",
+          "Unlimited reminders",
+          "Unlimited stylists",
+          "Advanced analytics",
+          "VIP support"
+        ],
+        "price": "s/129.9 per month",
+        "cta": "Learn more"
+      }
+    }
+  },
+  "auth": {
+    "signIn": {
+      "title": "Welcome back!",
+      "subtitle": "Back to beauty business? Sign in",
+      "username": "Username",
+      "password": "Password",
+      "button": "Sign in",
+      "noAccount": "Don't have an account?",
+      "register": "Register here"
+    }
+  }
+}
