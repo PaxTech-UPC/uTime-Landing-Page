@@ -1,0 +1,165 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "pricing": "Precios",
+    "more": "Más",
+    "aboutUs": "Sobre Nosotros",
+    "contactUs": "Contáctanos",
+    "signIn": "Iniciar Sesión",
+    "register": "Registrarse",
+    "language": "EN"
+  },
+  "footer": {
+    "complaintsBook": "Libro de reclamaciones",
+    "termsConditions": "Términos y Condiciones",
+    "privacyPolicy": "Política de Privacidad",
+    "cookiesPolicy": "Política de Cookies",
+    "help": "Ayuda",
+    "frequentQuestions": "Preguntas Frecuentes"
+  },
+  "home": {
+    "hero": {
+      "title": "Tu Tiempo es Oro. Deja que uTime lo Haga Brillar",
+      "subtitle": "Agenda profesional para profesionales como tú. Impresiona a tus clientes, simplifica tu día y eleva tu servicio",
+      "cta": "¡Comienza hoy!"
+    },
+    "features": {
+      "smartCalendar": {
+        "title": "Calendario Inteligente",
+        "description": "Gestiona tus citas con un calendario intuitivo diseñado para tu flujo semanal. Añade, edita, reprograma y visualiza toda tu semana de un vistazo, sin confusiones ni desorden."
+      },
+      "autoReminders": {
+        "title": "Recordatorios Automáticos",
+        "description": "uTime envía recordatorios a tus clientes automáticamente, para que nunca olviden su cita y tú nunca pierdas tiempo ni ingresos."
+      },
+      "reviews": {
+        "title": "Reseñas y Valoraciones",
+        "description": "Recopila comentarios de los clientes después de cada sesión. Construye tu reputación con reseñas verificadas y muestra tu excelencia a futuros clientes."
+      },
+      "stylistProfiles": {
+        "title": "Perfiles de Estilistas",
+        "description": "Crea un perfil personalizado con tu biografía, especialidades, precios y portafolio. Ayuda a los clientes a conocerte antes de reservar y genera confianza desde el primer clic."
+      },
+      "securePayment": {
+        "title": "Pago Seguro",
+        "description": "Acepta pagos online con confianza. uTime ofrece opciones de pago fluidas para los clientes y garantiza que tus transacciones estén encriptadas y seguras."
+      }
+    },
+    "cards": {
+      "lookBook": {
+        "title": "Busca y reserva",
+        "description": "Explora estilistas y barberos talentosos cerca de ti, mira su trabajo, lee reseñas y reserva en pocos toques. Simple, rápido y sin estrés",
+        "cta": "Reservar ahora"
+      },
+      "business": {
+        "title": "Mejora tu negocio",
+        "description": "Desde programación de citas hasta pagos seguros y construcción de tu presencia online. Todo en una plataforma elegante y fácil de usar.",
+        "cta": "Comenzar ahora"
+      }
+    },
+    "journey": {
+      "title": "El viaje comienza aquí",
+      "steps": [
+        {
+          "number": "1",
+          "title": "Busca tu estilista favorito",
+          "description": "Navega por nuestro directorio de estilistas profesionales y encuentra tu combinación perfecta."
+        },
+        {
+          "number": "2",
+          "title": "Verifica su disponibilidad",
+          "description": "Visualiza la disponibilidad en tiempo real y selecciona un horario que te convenga."
+        },
+        {
+          "number": "3",
+          "title": "Guarda la fecha y elige el pago",
+          "description": "Asegura tu cita con nuestro sistema de reservas fácil y opciones de pago."
+        },
+        {
+          "number": "4",
+          "title": "Todo listo. ¡Disfruta!",
+          "description": "Relájate, nosotros te enviaremos recordatorios antes de tu cita."
+        }
+      ],
+      "cta": "¡Comenzar ahora!"
+    }
+  },
+  "about": {
+    "title": "Sobre nosotros",
+    "content": [
+      "PaxTech es una startup liderada por estudiantes de la Universidad Peruana de Ciencias Aplicadas, dedicada al desarrollo de soluciones tecnológicas innovadoras.",
+      "En un mundo donde la digitalización es clave para el éxito, PaxTech empodera a los profesionales de la belleza con una plataforma intuitiva y automatizada que mejora la experiencia tanto para ellos como para sus clientes.",
+      "A través de nuestra solución, buscamos revolucionar la manera en que los estilistas organizan su agenda, reduciendo la pérdida de tiempo y aumentando su visibilidad en el mercado."
+    ]
+  },
+  "contact": {
+    "title": "CONTÁCTANOS",
+    "uTime": "uTime",
+    "paxTech": "PaxTech",
+    "sales": "Equipo de ventas",
+    "support": "Equipo de soporte",
+    "form": {
+      "title": "PONTE EN CONTACTO",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "email": "Correo electrónico",
+      "comment": "Comentario",
+      "submit": "Contáctame"
+    }
+  },
+  "pricing": {
+    "title": "PRECIOS",
+    "plans": {
+      "essential": {
+        "name": "Esencial",
+        "description": "Comienza simple y mantente organizado",
+        "features": [
+          "Calendario inteligente básico",
+          "Página de reservas para clientes",
+          "Reseñas y valoraciones",
+          "Perfiles de estilistas",
+          "2 cuentas de estilista"
+        ],
+        "price": "Gratis",
+        "cta": "Saber más"
+      },
+      "proStyle": {
+        "name": "ProStyle",
+        "description": "Eleva tu salón con herramientas inteligentes",
+        "features": [
+          "Sincronización avanzada de calendario",
+          "Recordatorios por WhatsApp",
+          "Hasta 5 estilistas",
+          "Seguimiento de rendimiento",
+          "Soporte prioritario"
+        ],
+        "price": "s/69.9 x mes",
+        "cta": "Saber más"
+      },
+      "deluxe": {
+        "name": "Deluxe Studio",
+        "description": "Todo en uno para salones premium",
+        "features": [
+          "Control total del calendario",
+          "Recordatorios ilimitados",
+          "Estilistas ilimitados",
+          "Análisis avanzados",
+          "Soporte VIP"
+        ],
+        "price": "s/129.9 x mes",
+        "cta": "Saber más"
+      }
+    }
+  },
+  "auth": {
+    "signIn": {
+      "title": "¡Bienvenido de vuelta!",
+      "subtitle": "¿De vuelta al negocio de la belleza? Inicia sesión",
+      "username": "Nombre de usuario",
+      "password": "Contraseña",
+      "button": "Iniciar sesión",
+      "noAccount": "¿No tienes una cuenta?",
+      "register": "Regístrate aquí"
+    }
+  }
+}
