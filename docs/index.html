@@ -1,422 +1,786 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uTime</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/205873631?s=400&u=7181957c1d03747f9dd9a668e2d4857d99ce55ff&v=4" type="image/png">
 </head>
-<style>
-    /* Blue buttons with white arrows */
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-        background-color: purple; /* Bootstrap primary blue */
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background-size: 60%; /* Make the arrow smaller */
-    }
 
-    /* Custom carousel container */
-    .carousel-external-arrows {
-        position: relative;
-        padding: 0 60px; /* Make space for arrows */
-    }
+<body class="font-sans text-gray-900 bg-white leading-relaxed bg-gradient-to-b from-purple-100 via-pink-50 to-white ">
 
-    /* Arrow positioning */
-    .carousel-external-arrows .carousel-control-prev {
-        left: -50px; /* Move left arrow outside */
-    }
-    .carousel-external-arrows .carousel-control-next {
-        right: -50px; /* Move right arrow outside */
-    }
 
-    /* Arrow styling */
-    .carousel-external-arrows .carousel-control-prev,
-    .carousel-external-arrows .carousel-control-next {
-        width: 50px;
-        height: 50px;
-        background-color: purple;
-        border-radius: 50%;
-        top: 50%;
-        transform: translateY(-50%);
-        opacity: 1;
-    }
+<!-- Botón flotante redondo, oculto al inicio -->
+<button id="restoreNavbarBtn"
+        class="fixed top-4 left-4 z-50 bg-purple-700 text-white p-3 w-12 h-12 flex items-center justify-center rounded-full shadow-lg hover:bg-purple-800 transition-all duration-500 transform -translate-y-10 opacity-0 pointer-events-none"
+        aria-label="Mostrar navbar">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+         xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+</button>
 
-    /* Arrow icon sizing */
-    .carousel-external-arrows .carousel-control-prev-icon,
-    .carousel-external-arrows .carousel-control-next-icon {
-        width: 1.5rem;
-        height: 1.5rem;
-    }
+<!-- Navbar principal -->
+<header id="navbarWrapper"
+        class="fixed top-0 left-0 w-full z-40 flex justify-center px-5 transform transition-all duration-500 ease-in-out translate-y-0 opacity-100">
+    <nav
+            class="flex items-center justify-between w-full max-w-screen-xl backdrop-blur-md bg-white/90 border border-gray-200 shadow-lg px-10 py-4 mt-5 rounded-full ring-1 ring-gray-100">
 
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-        .carousel-external-arrows {
-            padding: 0 30px;
-        }
-        .carousel-external-arrows .carousel-control-prev {
-            left: -30px;
-        }
-        .carousel-external-arrows .carousel-control-next {
-            right: -30px;
-        }
-
-    }
-
-    .btn {
-        background-color: purple;
-        color: white;
-    }
-
-    .cardColor {
-        background: linear-gradient(135deg, #F5F5FF 0%, #E6E6FA 50%, #D8BFD8 100%);
-    }
-
-    .text-primary {
-        color: purple;
-    }
-</style>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-
-    <div class="container-fluid">
-        <div class="d-flex align-items-center justify-content-between">
-            <a class="navbar-brand d-lg-none " href="#"><img src="../image/logo.png" alt="logo" height="60"/> </a>
-        </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <!-- Botón para colapsar -->
+        <button id="collapseNavbarBtn"
+                class="mr-6 text-purple-700 hover:text-white bg-purple-100 hover:bg-purple-700 transition-all duration-300 rounded-full p-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ">
-                <li class="nav-item">
-                    <a class="nav-link" href="#" data-i18n="navbar.home">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="pricing.html" data-i18n="navbar.pricing">Pricing</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="navbar.more">
-                        More
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="about-us.html">About Us</a></li>
-                        <li><a class="dropdown-item" href="contact-us.html">Contact us</a></li>
-                    </ul>
-                </li>
 
-            </ul>
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                    <a class="navbar-brand mx-auto d-none d-lg-block" href="#"><img src="../image/logo.png" alt="logo" height="60"/></a>
-                </li>
-            </ul>
-            <div class="d-flex flex-column flex-lg-row gap-2">
-                <button type="button" class="btn btn-primary" onclick="window.location.href='sign-in.html'" id="sign-in-btn">Sign in</button>
-                <button type="button" class="btn btn-warning ms-lg-3" onclick="window.location.href='register.html'" id="register-btn">Register</button>
-            </div>
-        </div>
-        <button class="btn btn-outline-secondary ms-2" data-toggle-lang>EN</button>
-    </div>
-</nav>
-
-<section class="text-center py-5 mt-5">
-    <div class="container-fluid px-4"> <!--clamp(min, prefered, max)-->
-        <h1 class="fw-bold text-wrap" style="font-size: clamp(2rem, 6vw, 10rem); line-height: 1.2;">
-            Your Time is Gold<br>Let uTime Make It Shine
-        </h1>
-        <p class="mt-3" style="font-size: clamp(1rem, 2vw, 1.5rem); max-width: 700px; margin-inline: auto;">
-            Professional scheduling for professionals like you. Impress your clients, simplify your day, and elevate your service
-        </p>
-        <button type="button" class="btn btn-lg px-5 py-3 rounded-pill mt-4" onclick=window.location.href="sign-in.html">
-            Start today!
-        </button>
-    </div>
-</section>
-
-<div class="carousel-external-arrows ">
-    <div class="container-fluid px-5 my-5 container-md">
-        <div id="featuresCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <!-- Slide 1 - Smart Calendar -->
-                <div class="carousel-item active ">
-                    <div class="card mb-3 feature-card ">
-                        <div class="row g-0 h-100">
-                            <div class="col-md-4 d-flex justify-content-center align-items-center">
-                                <img src="https://files.catbox.moe/azj9dw.png" class="img-fluid rounded-start" alt="Smart Calendar">
-                            </div>
-                            <div class="col-md-8 d-flex align-items-center">
-                                <div class="card-body text-center">
-                                    <h2 class="card-title fw-bold text-wrap display-4">Smart Calendar</h2>
-                                    <p class="card-text fs-4">Manage your appointments with an intuitive calendar designed for your weekly flow. Add, edit, reschedule, and view your whole week at a glance - no confusion, no clutter.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 2 - Automatic Reminders -->
-                <div class="carousel-item">
-                    <div class="card mb-3 feature-card">
-                        <div class="row g-0 h-100">
-                            <div class="col-md-4 d-flex justify-content-center align-items-center">
-                                <img src="https://files.catbox.moe/oed2jq.png" class="img-fluid rounded-start" alt="Automatic Reminders">
-                            </div>
-                            <div class="col-md-8 d-flex align-items-center">
-                                <div class="card-body text-center">
-                                    <h2 class="card-title fw-bold text-wrap display-4">Automatic Reminders</h2>
-                                    <p class="card-text fs-4">uTime sends reminders to your clients automatically - so they never forget their appointment and you never lose time or income.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 3 - Reviews & Ratings -->
-                <div class="carousel-item">
-                    <div class="card mb-3 feature-card">
-                        <div class="row g-0 h-100">
-                            <div class="col-md-4 d-flex justify-content-center align-items-center">
-                                <img src="https://files.catbox.moe/d3d97z.png" class="img-fluid rounded-start" alt="Reviews & Ratings">
-                            </div>
-                            <div class="col-md-8 d-flex align-items-center">
-                                <div class="card-body text-center">
-                                    <h2 class="card-title fw-bold text-wrap display-4">Reviews & Ratings</h2>
-                                    <p class="card-text fs-4">Collect feedback from clients after each session. Build your reputation with verified reviews and showcase your excellence to future clients.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 4 - Stylist Profiles -->
-                <div class="carousel-item">
-                    <div class="card mb-3 feature-card">
-                        <div class="row g-0 h-100">
-                            <div class="col-md-4 d-flex justify-content-center align-items-center">
-                                <img src="https://files.catbox.moe/wwcnoy.png" class="img-fluid rounded-start" alt="Stylist Profiles">
-                            </div>
-                            <div class="col-md-8 d-flex align-items-center">
-                                <div class="card-body text-center">
-                                    <h2 class="card-title fw-bold text-wrap display-4">Stylist Profiles</h2>
-                                    <p class="card-text fs-4">Create a personalized profile with your bio, specialties, pricing, and portfolio. Help clients get to know you before they book - and build trust from the first click.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 5 - Secure Payment -->
-                <div class="carousel-item">
-                    <div class="card mb-3 feature-card">
-                        <div class="row g-0 h-100">
-                            <div class="col-md-4 d-flex justify-content-center align-items-center">
-                                <img src="https://files.catbox.moe/b3lsdy.png" class="img-fluid rounded-start" alt="Secure Payment">
-                            </div>
-                            <div class="col-md-8 d-flex align-items-center">
-                                <div class="card-body text-center">
-                                    <h2 class="card-title fw-bold text-wrap display-4">Secure Payment</h2>
-                                    <p class="card-text fs-4">Accept payments online with confidence. uTime offers seamless checkout options for clients and ensures your transactions are encrypted and secure.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Carousel Controls -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#featuresCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
+        <!-- Logo -->
+        <div class="flex items-center">
+            <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+                <img src="https://github.com/UPC-PaxTech/uTime/blob/main/img/logoutime.png?raw=true" alt="Logo" class="h-10 w-auto max-h-full">
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#featuresCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-
-            <!-- Carousel Indicators -->
-            <div class="carousel-indicators position-static mt-3">
-                <button type="button" data-bs-target="#featuresCarousel" data-bs-slide-to="0" class="active bg-dark" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#featuresCarousel" data-bs-slide-to="1" class="bg-dark" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#featuresCarousel" data-bs-slide-to="2" class="bg-dark" aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#featuresCarousel" data-bs-slide-to="3" class="bg-dark" aria-label="Slide 4"></button>
-                <button type="button" data-bs-target="#featuresCarousel" data-bs-slide-to="4" class="bg-dark" aria-label="Slide 5"></button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<br/>
-<br/>
-<div class="row gx-5 px-5">
-    <div class="col-sm-6">
-        <div class="card p-5 pb-1 bg-light cardColor" >
-            <div class="card-body">
-                <h5 class="card-title font-weight-bold">Look & book</h5>
-                <p class="card-text">Explore talented sylists and barbers near you, view their work, read reviews, and book in just a few taps. Smooth, fast, and totally stress-free</p>
-                <a href="#" class="btn btn-primary">Book now</a>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <div class="card p-5 pb-1 bg-light cardColor" >
-            <div class="card-body">
-                <h5 class="card-title font-weight-bold">Glow up your business</h5>
-                <p class="card-text">From appointment scheduling to secure payments and building your online presence. ALl in one sleek, easy-to-use platform.</p>
-                <a href="#" class="btn btn-primary" data-i18n="start.now">Start now</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<section class="py-5">
-    <div class="container">
-        <h1 class="display-4 fw-bold text-center mb-5">The journey starts here</h1>
-
-        <div class="row g-4 justify-content-center">
-            <!-- Card 1 -->
-            <div class="col-md-10 col-lg-8">
-                <div class="card mb-3 border-0 shadow-sm">
-                    <div class="row g-0 align-items-center">
-                        <div class="col-md-1 text-center py-3 py-md-0">
-                            <span class="display-6 fw-bold">1</span>
-                        </div>
-                        <div class="col-md-11">
-                            <div class="card-body">
-                                <h5 class="card-title fs-4">Look for your favorite stylist</h5>
-                                <p class="card-text text-muted">Browse our directory of professional stylists and find your perfect match.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="col-md-10 col-lg-8">
-                <div class="card mb-3 border-0 shadow-sm">
-                    <div class="row g-0 align-items-center">
-                        <div class="col-md-1 text-center py-3 py-md-0">
-                            <span class="display-6 fw-bold">2</span>
-                        </div>
-                        <div class="col-md-11">
-                            <div class="card-body">
-                                <h5 class="card-title fs-4">Check their availability</h5>
-                                <p class="card-text text-muted">View real-time availability and select a time that works for you.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="col-md-10 col-lg-8">
-                <div class="card mb-3 border-0 shadow-sm">
-                    <div class="row g-0 align-items-center">
-                        <div class="col-md-1 text-center py-3 py-md-0">
-                            <span class="display-6 fw-bold">3</span>
-                        </div>
-                        <div class="col-md-11">
-                            <div class="card-body">
-                                <h5 class="card-title fs-4">Save the date and choose payment</h5>
-                                <p class="card-text text-muted">Secure your appointment with our easy booking system and payment options.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="col-md-10 col-lg-8">
-                <div class="card mb-3 border-0 shadow-sm">
-                    <div class="row g-0 align-items-center">
-                        <div class="col-md-1 text-center py-3 py-md-0">
-                            <span class="display-6 fw-bold">4</span>
-                        </div>
-                        <div class="col-md-11">
-                            <div class="card-body">
-                                <h5 class="card-title fs-4">You're good to go. Enjoy!</h5>
-                                <p class="card-text text-muted">Sit back and relax - we'll send you reminders before your appointment.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
-        <div class="text-center mt-5">
-            <button class="btn btn-primary btn-lg px-5 py-3 rounded-pill fw-bold" data-i18n="start.now">¡Start now!</button>
-        </div>
-    </div>
-</section>
+        <!-- Links -->
+        <ul class="hidden md:flex gap-6 flex-1 justify-center text-base font-medium text-gray-600">
+            <li><a href="#features" class="hover:text-purple-700 transition-colors duration-200 relative group">
+                Features <span
+                    class="absolute left-0 -bottom-1 w-0 h-0.5 bg-purple-700 transition-all group-hover:w-full"></span>
+            </a></li>
+            <li><a href="#howitworks" class="hover:text-purple-700 transition-colors duration-200 relative group">
+                How it Works <span
+                    class="absolute left-0 -bottom-1 w-0 h-0.5 bg-purple-700 transition-all group-hover:w-full"></span>
+            </a></li>
+            <li><a href="#pricing" class="hover:text-purple-700 transition-colors duration-200 relative group">
+                Pricing <span
+                    class="absolute left-0 -bottom-1 w-0 h-0.5 bg-purple-700 transition-all group-hover:w-full"></span>
+            </a></li>
+            <li><a href="#testimonials" class="hover:text-purple-700 transition-colors duration-200 relative group">
+                Testimonials <span
+                    class="absolute left-0 -bottom-1 w-0 h-0.5 bg-purple-700 transition-all group-hover:w-full"></span>
+            </a></li>
+            <li><a href="#faq" class="hover:text-purple-700 transition-colors duration-200 relative group">
+                FAQ <span
+                    class="absolute left-0 -bottom-1 w-0 h-0.5 bg-purple-700 transition-all group-hover:w-full"></span>
+            </a></li>
+        </ul>
 
-<footer class="px-3 py-3 my-4 border-top text-white">
-    <ul class="nav justify-content-center">
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Complaints book</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Terms & Conditions</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-white ">Privacy Policy</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Cookies Policy</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Help</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Frequent Questions</a></li>
-    </ul>
-</footer>
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+        <!-- CTA -->
+        <a href="https://upc-paxtech.github.io/Frontend-Web-Applications/"
+           class="ml-4 bg-purple-700 text-white font-semibold px-5 py-2.5 rounded-md shadow-md hover:bg-purple-800 transition duration-300">
+            Get Started
+        </a>
+    </nav>
+</header>
 
 <script>
-    const translations = {
-        en: {
-            "navbar.home": "Home",
-            "navbar.pricing": "Pricing",
-            "navbar.about": "About Us",
-            "navbar.contact": "Contact us",
-            "navbar.more":"More",
-            "hero.title": "Your Time is Gold<br>Let uTime Make It Shine",
-            "hero.description": "Professional scheduling for professionals like you. Impress your clients, simplify your day, and elevate your service",
-            "hero.button": "Start today!",
-            "start.now": "Start now!"
-        },
-        es: {
-            "navbar.home": "Inicio",
-            "navbar.pricing": "Precios",
-            "navbar.about": "Sobre nosotros",
-            "navbar.contact": "Contáctanos",
-            "navbar.more":"Más",
-            "hero.title": "Tu tiempo es oro<br>Deja que uTime lo haga brillar",
-            "hero.description": "Agenda profesional para profesionales como tú. Impresiona a tus clientes, simplifica tu día y eleva tu servicio",
-            "hero.button": "¡Empieza hoy!",
-            "start.now": "Empieza Ahora!"
-        }
-    };
+    const collapseBtn = document.getElementById('collapseNavbarBtn');
+    const restoreBtn = document.getElementById('restoreNavbarBtn');
+    const navbar = document.getElementById('navbarWrapper');
 
-    let currentLang = 'en';
+    collapseBtn.addEventListener('click', () => {
+        // Oculta el navbar desplazándolo hacia arriba
+        navbar.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
 
-    document.querySelector('[data-toggle-lang]').addEventListener('click', () => {
-        currentLang = currentLang === 'en' ? 'es' : 'en';
-        const elements = document.querySelectorAll('[data-i18n]');
+        // Muestra el botón flotante bajando
+        restoreBtn.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-10');
+        restoreBtn.classList.add('translate-y-0');
+    });
 
-        elements.forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            if (translations[currentLang][key]) {
-                el.innerHTML = translations[currentLang][key];
-            }
-        });
+    restoreBtn.addEventListener('click', () => {
+        // Restaura el navbar bajando desde arriba
+        navbar.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
 
-        // Cambiar el texto del botón
-        document.querySelector('[data-toggle-lang]').innerText = currentLang.toUpperCase();
-
-        // También puedes cambiar texto fuera de data-i18n si quieres
-        document.querySelector('h1').innerHTML = translations[currentLang]["hero.title"];
-        document.querySelector('section p').innerText = translations[currentLang]["hero.description"];
-        document.querySelector('section button').innerText = translations[currentLang]["hero.button"];
-
-        document.getElementById("sign-in-btn").innerText = currentLang === 'en' ? 'Sign in' : 'Iniciar sesión';
-        document.getElementById("register-btn").innerText = currentLang === 'en' ? 'Register' : 'Registrarse';
+        // Oculta el botón flotante subiéndolo
+        restoreBtn.classList.add('opacity-0', 'pointer-events-none', '-translate-y-10');
+        restoreBtn.classList.remove('translate-y-0');
     });
 </script>
 
+
+
+<!-- Hero Section -->
+<section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center gap-6 px-5 pt-60 pb-32 bg-gradient-to-b from-purple-100 via-pink-50 to-white">
+
+
+
+    <h2 class="text-6xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-purple-800 via-purple-500 to-gray-950 leading-tight">
+        <span>Skip the Calls</span><br class="hidden md:block">
+        <span class="mt-3 block">Book in Real Time</span>
+    </h2>
+
+    <p class="text-lg md:text-xl text-gray-700 max-w-2xl mt-6">
+        Let your clients reserve their appointment instantly. Manage availability in real time and simplify your day.
+    </p>
+
+    <a
+            href="https://upc-paxtech.github.io/Frontend-Web-Applications/"
+            class="bg-gradient-to-r from-purple-600 to-purple-800 text-white font-semibold px-8 py-4 rounded-full shadow-xl hover:from-purple-700 hover:to-purple-900 transition duration-300 mt-8 text-lg">
+        Start for Free →
+    </a>
+
+    <img
+            src="https://www.shutterstock.com/shutterstock/photos/2207273311/display_1500/stock-vector--years-calendar-calender-layout-week-starts-sunday-desk-2207273311.jpg"
+            alt="Vista previa de la app"
+            class="mt-14 w-11/12 max-w-4xl rounded-2xl shadow-2xl border border-white/40">
+
+</section>
+
+
+
+
+<!-- Features Section -->
+<section id="features" class="py-20 space-y-28 bg-white">
+
+    <!-- Feature 1 -->
+    <div class="max-w-screen-xl mx-auto px-6">
+        <div class="bg-gradient-to-b from-purple-100 via-pink-50 to-white p-10 rounded-3xl shadow-xl flex flex-col lg:flex-row items-center gap-12">
+            <!-- Text -->
+            <div class="lg:w-1/2">
+                <div class="text-sm font-medium text-purple-600 uppercase tracking-wide mb-2">Features</div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 leading-tight">
+                    Smart Appointment Management in Real Time
+                </h2>
+                <p class="text-gray-600 mt-4">
+                    Manage all your bookings with a visual calendar that updates in real time. Your team, your services, and your schedule — all in perfect sync.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
+                    <div>
+                        <h4 class="font-semibold">📅 Interactive Calendar</h4>
+                        <p class="text-sm text-gray-600">See every team member’s bookings in real time.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold">⏳ Automatic Duration</h4>
+                        <p class="text-sm text-gray-600">Service times are calculated automatically.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold">📲 Simplified Booking</h4>
+                        <p class="text-sm text-gray-600">Clients book easily through the app — you just manage.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold">🧑‍💼 Staff Control</h4>
+                        <p class="text-sm text-gray-600">Assign and filter services by stylist or barber.</p>
+                    </div>
+                </div>
+
+                <button onclick="window.location.href='https://upc-paxtech.github.io/Frontend-Web-Applications/'" class="mt-10 px-6 py-3 bg-purple-600 text-white rounded-lg shadow-md hover:bg-purple-700 transition">
+                    Get Started →
+                </button>
+            </div>
+            <!-- Image -->
+            <div class="lg:w-1/2">
+                <img src="https://i.imgur.com/XfXhW3b.png" alt="Real-Time Booking Calendar" class="w-full rounded-xl shadow-xl">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Feature 2 (reversed) -->
+    <div class="max-w-screen-xl mx-auto px-6">
+        <div class="bg-gradient-to-b from-purple-100 via-pink-50 to-white p-10 rounded-3xl shadow-xl flex flex-col lg:flex-row-reverse items-center gap-12">
+            <!-- Text -->
+            <div class="lg:w-1/2">
+                <div class="text-sm font-medium text-purple-600 uppercase tracking-wide mb-2">Features</div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 leading-tight">
+                    Payments & Full Service Management
+                </h2>
+                <p class="text-gray-600 mt-4">
+                    Control your salon from one single dashboard: services, bookings, payments, and client interactions — simplified and secure.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
+                    <div>
+                        <h4 class="font-semibold">💳 Secure Payments</h4>
+                        <p class="text-sm text-gray-600">Accept quick and safe payments directly through the app.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold">🧾 Service Setup</h4>
+                        <p class="text-sm text-gray-600">Define your services, prices, and durations with ease.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold">📊 Booking Dashboard</h4>
+                        <p class="text-sm text-gray-600">Track appointments and monitor your team's schedule.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold">🔔 Automated Reminders</h4>
+                        <p class="text-sm text-gray-600">Clients receive reminders automatically before their bookings.</p>
+                    </div>
+                </div>
+
+                <button onclick="window.location.href='https://upc-paxtech.github.io/Frontend-Web-Applications/'" class="mt-10 px-6 py-3 bg-purple-600 text-white rounded-lg shadow-md hover:bg-purple-700 transition">
+                    Get Started →
+                </button>
+            </div>
+            <!-- Image -->
+            <div class="lg:w-1/2">
+                <img src="https://i.imgur.com/Bk05IQd.png" alt="Payments Feature Image" class="w-full rounded-xl shadow-xl">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Feature 3 -->
+    <div class="max-w-screen-xl mx-auto px-6">
+        <div class="bg-gradient-to-b from-purple-100 via-pink-50 to-white p-10 rounded-3xl shadow-xl flex flex-col lg:flex-row items-center gap-12">
+            <!-- Text -->
+            <div class="lg:w-1/2">
+                <div class="text-sm font-medium text-purple-600 uppercase tracking-wide mb-2">Features</div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 leading-tight">
+                    Full Control with Custom Profiles
+                </h2>
+                <p class="text-gray-600 mt-4">
+                    Each salon or barber gets a fully customizable profile to showcase services, manage their team, and control how clients see them — all in one place.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
+                    <div>
+                        <h4 class="font-semibold">👥 Staff Management</h4>
+                        <p class="text-sm text-gray-600">Easily add and manage stylists and barbers under your brand.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold">🛠️ Customizable Profiles</h4>
+                        <p class="text-sm text-gray-600">Set working hours, services, pricing, and portfolio images.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold">📸 Portfolio Showcase</h4>
+                        <p class="text-sm text-gray-600">Display photos of past work and specialties to attract clients.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold">⚙️ Business Settings</h4>
+                        <p class="text-sm text-gray-600">Adjust notifications, appointment rules, and booking preferences.</p>
+                    </div>
+                </div>
+
+                <button onclick="window.location.href='https://upc-paxtech.github.io/Frontend-Web-Applications/'" class="mt-10 px-6 py-3 bg-purple-600 text-white rounded-lg shadow-md hover:bg-purple-700 transition">
+                    Get Started →
+                </button>
+            </div>
+            <!-- Image -->
+            <div class="lg:w-1/2">
+                <img src="https://i.imgur.com/YV2PQAb.png" alt="Custom Profile Feature Image" class="w-full rounded-xl shadow-xl">
+            </div>
+        </div>
+    </div>
+
+
+
+</section>
+
+
+
+<!-- How it Works -->
+<section id="howitworks" class="bg-gradient-to-b from-white to-purple-50 py-20">
+    <div class="max-w-screen-xl mx-auto px-6 text-center">
+
+        <!-- Heading -->
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Cómo funciona para los proveedores</h2>
+        <p class="text-gray-600 mt-3 max-w-2xl mx-auto">
+            Sigue estos simples pasos para gestionar eficientemente tu negocio y ofrecer una experiencia profesional a tus clientes.
+        </p>
+
+        <!-- Timeline -->
+        <div class="relative mt-20">
+            <!-- Vertical Line -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 h-full border-l-2 border-purple-200"></div>
+
+            <!-- Step 1 -->
+            <div class="relative z-10 flex flex-col md:flex-row items-center md:items-start md:gap-12 mb-20">
+                <div class="w-full md:w-1/2 md:pr-12 text-right md:text-left">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Crea tu cuenta</h3>
+                    <p class="text-gray-600">
+                        Regístrate fácilmente ingresando tu información básica. Accede a tu panel personalizado para comenzar a gestionar tu negocio.
+                    </p>
+                </div>
+                <div class="w-full md:w-1/2 mt-8 md:mt-0">
+                    <img src="https://i.imgur.com/FwV90T3.png" alt="Step 1" class="rounded-xl shadow-lg mx-auto max-w-sm">
+                </div>
+                <div class="absolute left-1/2 top-1 transform -translate-x-1/2 -translate-y-1/2 bg-white border-2 border-purple-300 rounded-full w-12 h-12 flex items-center justify-center text-purple-700 text-2xl">
+                    👤
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="relative z-10 flex flex-col md:flex-row-reverse items-center md:gap-12 mb-20">
+                <div class="w-full md:w-1/2 md:pl-12 text-left">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Agrega y gestiona a tus trabajadores</h3>
+                    <p class="text-gray-600">
+                        Registra a tu equipo, asigna sus horarios y controla sus agendas desde un solo lugar.
+                    </p>
+                </div>
+                <div class="w-full md:w-1/2 mt-8 md:mt-0">
+                    <img src="https://i.imgur.com/8D68GKe.png" alt="Step 2" class="rounded-xl shadow-lg mx-auto max-w-sm">
+                </div>
+                <div class="absolute left-1/2 top-1 transform -translate-x-1/2 -translate-y-1/2 bg-white border-2 border-purple-300 rounded-full w-12 h-12 flex items-center justify-center text-purple-700 text-2xl">
+                    🧑‍🤝‍🧑
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="relative z-10 flex flex-col md:flex-row items-center md:items-start md:gap-12 mb-20">
+                <div class="w-full md:w-1/2 md:pr-12 text-right md:text-left">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Define tus servicios</h3>
+                    <p class="text-gray-600">
+                        Crea y personaliza los servicios que ofreces. Establece duración, precio y asigna trabajadores específicos a cada uno.
+                    </p>
+                </div>
+                <div class="w-full md:w-1/2 mt-8 md:mt-0">
+                    <img src="https://i.imgur.com/R9QyRxM.png" alt="Step 3" class="rounded-xl shadow-lg mx-auto max-w-sm">
+                </div>
+                <div class="absolute left-1/2 top-1 transform -translate-x-1/2 -translate-y-1/2 bg-white border-2 border-purple-300 rounded-full w-12 h-12 flex items-center justify-center text-purple-700 text-2xl">
+                    💈
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="relative z-10 flex flex-col md:flex-row-reverse items-center md:gap-12 mb-20">
+                <div class="w-full md:w-1/2 md:pl-12 text-left">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Personaliza tu perfil</h3>
+                    <p class="text-gray-600">
+                        Agrega fotos, descripción, dirección, métodos de pago y más para construir un perfil profesional y confiable.
+                    </p>
+                </div>
+                <div class="w-full md:w-1/2 mt-8 md:mt-0">
+                    <img src="https://i.imgur.com/SYKmHzJ.png" alt="Step 4" class="rounded-xl shadow-lg mx-auto max-w-sm">
+                </div>
+                <div class="absolute left-1/2 top-1 transform -translate-x-1/2 -translate-y-1/2 bg-white border-2 border-purple-300 rounded-full w-12 h-12 flex items-center justify-center text-purple-700 text-2xl">
+                    🧾
+                </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="relative z-10 flex flex-col md:flex-row items-center md:items-start md:gap-12 mb-20">
+                <div class="w-full md:w-1/2 md:pr-12 text-right md:text-left">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Visualiza tu calendario</h3>
+                    <p class="text-gray-600">
+                        Accede a una vista general del calendario de todos tus trabajadores y gestiona tu agenda con eficiencia.
+                    </p>
+                </div>
+                <div class="w-full md:w-1/2 mt-8 md:mt-0">
+                    <img src="https://i.imgur.com/IJt1Qe2.png" alt="Step 5" class="rounded-xl shadow-lg mx-auto max-w-sm">
+                </div>
+                <div class="absolute left-1/2 top-1 transform -translate-x-1/2 -translate-y-1/2 bg-white border-2 border-purple-300 rounded-full w-12 h-12 flex items-center justify-center text-purple-700 text-2xl">
+                    📆
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-20 max-w-6xl mx-auto px-6">
+            <div class="bg-white rounded-3xl shadow-xl px-10 py-10 flex flex-col lg:flex-row items-center justify-between gap-6">
+                <div class="text-center lg:text-left">
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">¿Listo para gestionar tu negocio como nunca antes?</h3>
+                    <p class="text-gray-600">
+                        Optimiza tu flujo de trabajo, conecta con clientes y mejora tu presencia profesional con nuestra plataforma.
+                    </p>
+                </div>
+                <a href="https://upc-paxtech.github.io/Frontend-Web-Applications/" class="bg-gradient-to-r from-purple-600 to-purple-800 text-white px-8 py-4 rounded-full shadow-md font-semibold hover:from-purple-700 hover:to-purple-900 transition">
+                    Comienza ahora →
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Pricing -->
+<section id="pricing" class="bg-gradient-to-b from-white to-purple-50 py-20">
+    <div class="max-w-screen-xl mx-auto px-6 text-center">
+
+        <!-- Heading -->
+        <div class="mb-16">
+            <div class="text-sm text-purple-600 font-medium mb-2 flex justify-center items-center gap-2">
+                <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c.828 0 1.5-.895 1.5-2S12.828 4 12 4s-1.5.895-1.5 2 .672 2 1.5 2zm0 4c.828 0 1.5-.895 1.5-2s-.672-2-1.5-2-1.5.895-1.5 2 .672 2 1.5 2zm0 4c.828 0 1.5-.895 1.5-2s-.672-2-1.5-2-1.5.895-1.5 2 .672 2 1.5 2z" /></svg>
+                Pricing
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Flexible Plans for Every Salon Stage</h2>
+            <p class="text-gray-600 mt-2 max-w-xl mx-auto">Choose the right tools to grow your beauty business — start free, upgrade anytime.</p>
+        </div>
+
+        <!-- Pricing Cards -->
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <!-- Essential Plan -->
+            <div class="bg-white rounded-xl shadow-md p-8 text-left border border-gray-100">
+                <p class="text-sm text-gray-500 font-medium mb-2">Start simple and stay organized</p>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Essential</h3>
+                <ul class="space-y-3 text-sm text-gray-700 mb-6">
+                    <li class="flex items-center gap-2"><span class="text-purple-600">✔</span> Basic smart calendar</li>
+                    <li class="flex items-center gap-2"><span class="text-purple-600">✔</span> Client booking page</li>
+                    <li class="flex items-center gap-2"><span class="text-purple-600">✔</span> Reviews & ratings</li>
+                    <li class="flex items-center gap-2"><span class="text-purple-600">✔</span> Stylist profiles</li>
+                    <li class="flex items-center gap-2"><span class="text-purple-600">✔</span> 2 stylist accounts</li>
+                </ul>
+                <p class="text-3xl font-bold text-purple-700 mb-4">Free</p>
+                <button onclick="window.location.href='https://upc-paxtech.github.io/Frontend-Web-Applications/'" class="w-full bg-white border border-purple-600 text-purple-700 font-semibold py-2 rounded-md hover:bg-purple-50 transition">Get Started</button>
+            </div>
+
+            <!-- ProStyle Plan -->
+            <div class="bg-white rounded-xl shadow-lg p-8 text-left border-2 border-purple-600 relative">
+                <p class="absolute top-0 right-0 bg-purple-600 text-white text-xs font-semibold rounded-bl-md px-3 py-1">Most Popular</p>
+                <p class="text-sm text-gray-500 font-medium mb-2">Level up your salon with smart tools</p>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">ProStyle</h3>
+                <ul class="space-y-3 text-sm text-gray-700 mb-6">
+                    <li class="flex items-center gap-2"><span class="text-purple-600">✔</span> Advanced calendar sync</li>
+                    <li class="flex items-center gap-2"><span class="text-purple-600">✔</span> WhatsApp reminders</li>
+                    <li class="flex items-center gap-2"><span class="text-purple-600">✔</span> Up to 5 stylists</li>
+                    <li class="flex items-center gap-2"><span class="text-purple-600">✔</span> Performance tracking</li>
+                    <li class="flex items-center gap-2"><span class="text-purple-600">✔</span> Priority support</li>
+                </ul>
+                <p class="text-3xl font-bold text-purple-700 mb-4">S/69.9<span class="text-base text-gray-500 font-normal">/month</span></p>
+                <button onclick="window.location.href='https://upc-paxtech.github.io/Frontend-Web-Applications/'" class="w-full bg-purple-700 text-white font-semibold py-2 rounded-md hover:bg-purple-800 transition">Start Free Trial</button>
+            </div>
+
+            <!-- Deluxe Studio Plan -->
+            <div class="bg-white rounded-xl shadow-md p-8 text-left border border-gray-100">
+                <p class="text-sm text-gray-500 font-medium mb-2">All-in-one power for premium salons</p>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Deluxe Studio</h3>
+                <ul class="space-y-3 text-sm text-gray-700 mb-6">
+                    <li class="flex items-center gap-2"><span class="text-purple-600">✔</span> Full calendar control</li>
+                    <li class="flex items-center gap-2"><span class="text-purple-600">✔</span> Unlimited reminders</li>
+                    <li class="flex items-center gap-2"><span class="text-purple-600">✔</span> Unlimited stylists</li>
+                    <li class="flex items-center gap-2"><span class="text-purple-600">✔</span> Advanced analytics</li>
+                    <li class="flex items-center gap-2"><span class="text-purple-600">✔</span> VIP support</li>
+                </ul>
+                <p class="text-3xl font-bold text-purple-700 mb-4">S/129.9<span class="text-base text-gray-500 font-normal">/month</span></p>
+                <button onclick="window.location.href='https://upc-paxtech.github.io/Frontend-Web-Applications/'" class="w-full bg-white border border-purple-600 text-purple-700 font-semibold py-2 rounded-md hover:bg-purple-50 transition">Contact Us</button>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="py-24 px-6 bg-gradient-to-b from-purple-50 to-white">
+    <div class="max-w-6xl mx-auto rounded-3xl bg-white shadow-xl p-10 overflow-hidden">
+
+        <!-- Heading -->
+        <div class="text-center mb-12">
+            <div class="text-sm text-purple-600 font-medium mb-2 flex justify-center items-center gap-2">
+                <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 20h9" /></svg>
+                Testimonios
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Confiado por más de 100+ negocios de belleza</h2>
+            <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Conoce cómo uTime ha transformado su forma de trabajar y por qué es la herramienta ideal para su negocio.</p>
+        </div>
+
+        <!-- Carousel Wrapper Row 1 -->
+        <div class="overflow-hidden mb-10">
+            <div class="flex gap-6 animate-carousel-left">
+                <template id="carousel-row-1">
+                    <div class="testimonial-card">
+                        <div class="flex mb-2 text-purple-500 text-lg">★★★★★</div>
+                        <p class="text-gray-700 mb-4">Desde que usamos uTime, la organización de las citas es impecable. Nuestros clientes están más felices y todo el equipo trabaja más tranquilo.</p>
+                        <div class="flex items-center gap-3">
+                            <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Luis Paredes" class="w-10 h-10 rounded-full object-cover">
+                            <div>
+                                <p class="font-semibold text-gray-800">Luis Paredes</p>
+                                <p class="text-sm text-gray-500">Dueño de Barbería El Corte Fino</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="flex mb-2 text-purple-500 text-lg">★★★★★</div>
+                        <p class="text-gray-700 mb-4">Con uTime ahorramos horas cada semana en la gestión del salón. Todo es más fluido, desde los turnos hasta el control del personal.</p>
+                        <div class="flex items-center gap-3">
+                            <img src="https://randomuser.me/api/portraits/women/20.jpg" alt="María Fernanda Ríos" class="w-10 h-10 rounded-full object-cover">
+                            <div>
+                                <p class="font-semibold text-gray-800">María Fernanda Ríos</p>
+                                <p class="text-sm text-gray-500">Administradora en Salón Glamour</p>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                <script>
+                    const row1 = document.querySelector('.animate-carousel-left');
+                    const row1Content = document.getElementById('carousel-row-1').content;
+                    row1.appendChild(row1Content.cloneNode(true));
+                    row1.appendChild(row1Content.cloneNode(true));
+                </script>
+            </div>
+        </div>
+
+        <!-- Carousel Wrapper Row 2 -->
+        <div class="overflow-hidden">
+            <div class="flex gap-6 animate-carousel-right">
+                <template id="carousel-row-2">
+                    <div class="testimonial-card">
+                        <div class="flex mb-2 text-purple-500 text-lg">★★★★★</div>
+                        <p class="text-gray-700 mb-4">uTime me permite ver estadísticas y controlar mejor la productividad del equipo. Es justo lo que necesitábamos en nuestro centro de estética.</p>
+                        <div class="flex items-center gap-3">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Karla Mendoza" class="w-10 h-10 rounded-full object-cover">
+                            <div>
+                                <p class="font-semibold text-gray-800">Karla Mendoza</p>
+                                <p class="text-sm text-gray-500">Gerente de Estética Belle Femme</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="flex mb-2 text-purple-500 text-lg">★★★★★</div>
+                        <p class="text-gray-700 mb-4">Recomiendo uTime a todos los colegas barberos. Es fácil de usar, potente y hace que el negocio funcione como reloj suizo.</p>
+                        <div class="flex items-center gap-3">
+                            <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="Ricardo Torres" class="w-10 h-10 rounded-full object-cover">
+                            <div>
+                                <p class="font-semibold text-gray-800">Ricardo Torres</p>
+                                <p class="text-sm text-gray-500">Jefe de Barbería Urban Style</p>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                <script>
+                    const row2 = document.querySelector('.animate-carousel-right');
+                    const row2Content = document.getElementById('carousel-row-2').content;
+                    row2.appendChild(row2Content.cloneNode(true));
+                    row2.appendChild(row2Content.cloneNode(true));
+                </script>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<style>
+    @keyframes carousel-left {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+    @keyframes carousel-right {
+        0% { transform: translateX(-50%); }
+        100% { transform: translateX(0); }
+    }
+    .animate-carousel-left {
+        animation: carousel-left 60s linear infinite;
+    }
+    .animate-carousel-right {
+        animation: carousel-right 60s linear infinite;
+    }
+    .testimonial-card {
+        width: 300px;
+        background: #f9fafb;
+        padding: 1.5rem;
+        border-radius: 1rem;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+        font-size: 0.875rem;
+        line-height: 1.5;
+        color: #374151;
+        flex-shrink: 0;
+    }
+</style>
+
+<!-- FAQ Section -->
+<section id="faq" class="py-24 px-6 bg-gradient-to-b from-white to-purple-50">
+    <div class="max-w-4xl mx-auto rounded-3xl bg-white shadow-xl p-10 overflow-hidden">
+
+        <!-- Heading -->
+        <div class="text-center mb-12">
+            <div class="text-sm text-purple-600 font-medium mb-2 flex justify-center items-center gap-2">
+                <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 20h9" />
+                </svg>
+                Frequently Asked Questions
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Clear Your Doubts About uTime</h2>
+            <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Here you’ll find answers to the most common questions about our platform for barbershops and beauty salons.</p>
+        </div>
+
+        <!-- Accordion Container -->
+        <div class="space-y-4 text-left" id="faq-accordion">
+
+            <!-- Item 1 -->
+            <div class="bg-gray-50 shadow-sm rounded-xl overflow-hidden transition-all duration-300">
+                <button class="w-full flex justify-between items-center px-5 py-4 text-left font-medium text-gray-800 focus:outline-none" data-toggle>
+                    Is uTime suitable for small barbershops or just for large businesses?
+                    <svg class="w-5 h-5 text-purple-600 transform transition-transform" data-icon fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="faq-content px-5 text-gray-600 transition-all duration-500 ease-in-out max-h-0 overflow-hidden" data-content>
+                    <p class="py-4">uTime is designed to adapt to businesses of any size, from solo barbers to salons with multiple team members.</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="bg-gray-50 shadow-sm rounded-xl overflow-hidden transition-all duration-300">
+                <button class="w-full flex justify-between items-center px-5 py-4 text-left font-medium text-gray-800 focus:outline-none" data-toggle>
+                    Do I need an internet connection to use uTime?
+                    <svg class="w-5 h-5 text-purple-600 transform transition-transform" data-icon fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="faq-content px-5 text-gray-600 transition-all duration-500 ease-in-out max-h-0 overflow-hidden" data-content>
+                    <p class="py-4">Yes, uTime is a cloud-based platform, so it requires an internet connection to work properly and sync data in real time.</p>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="bg-gray-50 shadow-sm rounded-xl overflow-hidden transition-all duration-300">
+                <button class="w-full flex justify-between items-center px-5 py-4 text-left font-medium text-gray-800 focus:outline-none" data-toggle>
+                    Does uTime help manage staff schedules and shifts?
+                    <svg class="w-5 h-5 text-purple-600 transform transition-transform" data-icon fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="faq-content px-5 text-gray-600 transition-all duration-500 ease-in-out max-h-0 overflow-hidden" data-content>
+                    <p class="py-4">Absolutely! uTime is designed to make it easy to organize shifts, manage schedules, and track staff attendance.</p>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="bg-gray-50 shadow-sm rounded-xl overflow-hidden transition-all duration-300">
+                <button class="w-full flex justify-between items-center px-5 py-4 text-left font-medium text-gray-800 focus:outline-none" data-toggle>
+                    Is there a free trial to try uTime?
+                    <svg class="w-5 h-5 text-purple-600 transform transition-transform" data-icon fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="faq-content px-5 text-gray-600 transition-all duration-500 ease-in-out max-h-0 overflow-hidden" data-content>
+                    <p class="py-4">Yes, we offer a 14-day free trial so you can explore all uTime features without any commitment.</p>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="bg-gray-50 shadow-sm rounded-xl overflow-hidden transition-all duration-300">
+                <button class="w-full flex justify-between items-center px-5 py-4 text-left font-medium text-gray-800 focus:outline-none" data-toggle>
+                    Does uTime help me manage client appointments?
+                    <svg class="w-5 h-5 text-purple-600 transform transition-transform" data-icon fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="faq-content px-5 text-gray-600 transition-all duration-500 ease-in-out max-h-0 overflow-hidden" data-content>
+                    <p class="py-4">Yes. uTime includes an intelligent booking system that allows your clients to book online and receive automatic reminders.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Accordion Script with animated height -->
+<script>
+    document.querySelectorAll('[data-toggle]').forEach(button => {
+        button.addEventListener('click', () => {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('[data-icon]');
+            const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+            document.querySelectorAll('[data-content]').forEach(el => {
+                el.style.maxHeight = null;
+                el.previousElementSibling.querySelector('[data-icon]').classList.remove('rotate-180');
+            });
+
+            if (!isOpen) {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                icon.classList.add('rotate-180');
+            }
+        });
+    });
+</script>
+
+<style>
+    .rotate-180 {
+        transform: rotate(180deg);
+    }
+</style>
+
+
+<!-- Call to Action -->
+<section id="cta" class="text-center py-28 px-6 bg-gradient-to-b from-white to-purple-50">
+    <div class="max-w-3xl mx-auto">
+        <div class="text-sm text-purple-600 font-medium mb-4 inline-block px-4 py-1 bg-white shadow rounded-full">
+            Take your barbershop or salon to the next level
+        </div>
+        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight">
+            Ready to transform<br>your daily operations?
+        </h2>
+        <p class="text-gray-600 mt-6 mb-10">
+            Discover how uTime helps you manage appointments, shifts, and clients with ease. Start today and optimize your time like never before.
+        </p>
+        <a href="https://upc-paxtech.github.io/Frontend-Web-Applications/" class="inline-block px-8 py-4 text-white font-semibold rounded-full bg-gradient-to-r from-purple-600 to-purple-800 shadow-lg hover:from-purple-700 hover:to-purple-900 transition">
+            Start for Free →
+        </a>
+    </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="bg-gradient-to-b from-purple-50 to-white text-sm text-gray-600">
+    <div class="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-5 gap-8">
+        <!-- Logo -->
+        <div class="md:col-span-1">
+            <h1 class="text-xl font-bold text-purple-700 mb-4">uTime</h1>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+            <h4 class="text-gray-800 font-semibold mb-3">Quick Links</h4>
+            <ul class="space-y-2">
+                <li><a href="#hero" class="hover:text-purple-600">Home</a></li>
+                <li><a href="#features" class="hover:text-purple-600">features</a></li>
+                <li><a href="#faq" class="hover:text-purple-600">FAQ</a></li>
+                <li><a href="https://upc-paxtech.github.io/Frontend-Web-Applications/" class="hover:text-purple-600">Support</a></li>
+            </ul>
+        </div>
+
+        <!-- Support -->
+        <div>
+            <h4 class="text-gray-800 font-semibold mb-3">Support</h4>
+            <ul class="space-y-2">
+                <li><a href="https://upc-paxtech.github.io/Frontend-Web-Applications/" class="hover:text-purple-600">Help Center</a></li>
+                <li><a href="https://upc-paxtech.github.io/Frontend-Web-Applications/" class="hover:text-purple-600">Getting Started</a></li>
+                <li><a href="https://upc-paxtech.github.io/Frontend-Web-Applications/" class="hover:text-purple-600">Contact Support</a></li>
+                <li><a href="https://upc-paxtech.github.io/Frontend-Web-Applications/" class="hover:text-purple-600">Community Forums</a></li>
+                <li><a href="https://upc-paxtech.github.io/Frontend-Web-Applications/" class="hover:text-purple-600">Documentation</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Us -->
+        <div>
+            <h4 class="text-gray-800 font-semibold mb-3">Contact Us</h4>
+            <ul class="space-y-2">
+                <li>📧 utime@company.com</li>
+                <li>📞 (+51) 979 447 361</li>
+                <li>📍 Lima Lima Miraflores<br>Peru</li>
+            </ul>
+        </div>
+
+        <!-- Social -->
+        <div>
+            <h4 class="text-gray-800 font-semibold mb-3">Social</h4>
+            <div class="flex space-x-3">
+                <a href="https://www.facebook.com/utime_upc" class="bg-purple-600 hover:bg-purple-700 text-white w-9 h-9 rounded-full flex items-center justify-center">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://x.com/utime_upc" class="bg-purple-600 hover:bg-purple-700 text-white w-9 h-9 rounded-full flex items-center justify-center">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/404/" class="bg-purple-600 hover:bg-purple-700 text-white w-9 h-9 rounded-full flex items-center justify-center">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.youtube.com/utime_upc" class="bg-purple-600 hover:bg-purple-700 text-white w-9 h-9 rounded-full flex items-center justify-center">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.instagram.com/utime_upc" class="bg-purple-600 hover:bg-purple-700 text-white w-9 h-9 rounded-full flex items-center justify-center">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="text-center border-t border-gray-200 py-4 text-xs text-gray-500">
+        © 2025 uTime. All rights reserved.
+    </div>
+</footer>
+
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </body>
+
 </html>
