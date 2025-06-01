@@ -35,3 +35,54 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
         </button>
+        <!-- Logo -->
+        <div class="flex items-center">
+            <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+                <img src="https://github.com/UPC-PaxTech/uTime/blob/main/img/logoutime.png?raw=true" alt="Logo" class="h-10 w-auto max-h-full">
+            </button>
+        </div>
+
+        <!-- Links -->
+        <ul class="hidden md:flex gap-6 flex-1 justify-center text-base font-medium text-gray-600">
+            <li><a href="#features" class="hover:text-purple-700 transition-colors duration-200 relative group" data-i18n="navbar_features">
+                Features <span
+                    class="absolute left-0 -bottom-1 w-0 h-0.5 bg-purple-700 transition-all group-hover:w-full"></span>
+            </a></li>
+            <li><a href="#howitworks" class="hover:text-purple-700 transition-colors duration-200 relative group" data-i18n="navbar_howitworks">
+                How it Works <span
+                    class="absolute left-0 -bottom-1 w-0 h-0.5 bg-purple-700 transition-all group-hover:w-full"></span>
+            </a></li>
+            <li><a href="#pricing" class="hover:text-purple-700 transition-colors duration-200 relative group" data-i18n="navbar_pricing">
+                Pricing <span
+                    class="absolute left-0 -bottom-1 w-0 h-0.5 bg-purple-700 transition-all group-hover:w-full"></span>
+            </a></li>
+            <li><a href="#testimonials" class="hover:text-purple-700 transition-colors duration-200 relative group" data-i18n="navbar_testimonials">
+                Testimonials <span
+                    class="absolute left-0 -bottom-1 w-0 h-0.5 bg-purple-700 transition-all group-hover:w-full"></span>
+            </a></li>
+            <li><a href="#faq" class="hover:text-purple-700 transition-colors duration-200 relative group">
+                FAQ <span
+                    class="absolute left-0 -bottom-1 w-0 h-0.5 bg-purple-700 transition-all group-hover:w-full"></span>
+            </a></li>
+        </ul>
+
+        <div class="relative mr-4">
+            <button id="languageToggle" class="flex items-center gap-2 px-3 py-2 text-gray-600 hover:text-purple-700 transition-colors duration-200 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md">
+                <img id="currentFlag" src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" width="20" height="14" class="rounded-sm" />
+                <span id="currentLangText" class="text-sm font-medium">English</span>
+                <svg class="w-4 h-4 transition-transform duration-200" id="languageArrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+
+            <div id="languageMenu" class="absolute top-full right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden opacity-0 invisible transform scale-95 transition-all duration-200 z-50">
+                <button class="language-option w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-purple-50 transition-colors duration-200" data-lang="en">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" width="20" height="14" class="rounded-sm" />
+                    <span class="text-sm font-medium text-gray-700" data-i18n="lang_english">English</span>
+                </button>
+                <button class="language-option w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-purple-50 transition-colors duration-200" data-lang="es">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg" width="20" height="14" class="rounded-sm" />
+                    <span class="text-sm font-medium text-gray-700" data-i18n="lang_spanish">Spanish</span>
+                </button>
+            </div>
+        </div>
