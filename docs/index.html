@@ -86,3 +86,102 @@
                 </button>
             </div>
         </div>
+        <script>
+            // Traducciones directas - SIN cargar desde archivo
+            let translations = {
+            };
+
+            let isMenuOpen = false;
+
+            const languages = {
+                en: {
+                    name: "English",
+                    flag: "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+                },
+                es: {
+                    name: "Español",
+                    flag: "https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg"
+                }
+            };
+
+            // Esperar a que el DOM esté listo
+            document.addEventListener('DOMContentLoaded', () => {
+                const languageToggle = document.getElementById('languageToggle');
+                const languageMenu = document.getElementById('languageMenu');
+                const languageArrow = document.getElementById('languageArrow');
+                const currentFlag = document.getElementById('currentFlag');
+                const currentLangText = document.getElementById('currentLangText');
+                const languageOptions = document.querySelectorAll('.language-option');
+
+                // Mostrar/ocultar menú
+                function toggleMenu() {
+                    isMenuOpen = !isMenuOpen;
+                    if (isMenuOpen) {
+                        languageMenu.classList.remove('opacity-0', 'invisible', 'scale-95');
+                        languageMenu.classList.add('opacity-100', 'visible', 'scale-100');
+                        languageArrow.style.transform = 'rotate(180deg)';
+                    } else {
+                        languageMenu.classList.add('opacity-0', 'invisible', 'scale-95');
+                        languageMenu.classList.remove('opacity-100', 'visible', 'scale-100');
+                        languageArrow.style.transform = 'rotate(0deg)';
+                    }
+                }
+
+                function loadTranslations(lang) {
+                    fetch('assets/translation/translations.json')
+                        .then(response => response.json())
+                        .then(data => {
+                            translations = data;
+                            switchLanguage(lang);
+                        })
+                        .catch(error => console.error('Error loading translations:', error));
+                }
+
+                function switchLanguage(lang) {
+                    // Cambiar textos traducibles
+                    document.querySelectorAll("[data-i18n]").forEach(el => {
+                        const key = el.getAttribute("data-i18n");
+                        if (translations[lang] && translations[lang][key]) {
+                            el.innerHTML = translations[lang][key];
+                        }
+                    });
+
+                    // Cambiar bandera y nombre en el botón principal
+                    currentFlag.src = languages[lang].flag;
+                    currentLangText.textContent = languages[lang].name;
+                }
+
+
+                // Event listeners
+                languageToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    console.log('Toggle clicked');
+                    toggleMenu();
+                });
+
+                languageOptions.forEach(option => {
+                    option.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const langCode = option.getAttribute('data-lang');
+                        console.log('Language option clicked:', langCode);
+                        loadTranslations(langCode);
+                        toggleMenu();
+                    });
+                });
+
+                document.addEventListener('click', () => {
+                    if (isMenuOpen) {
+                        toggleMenu();
+                    }
+                });
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && isMenuOpen) {
+                        toggleMenu();
+                    }
+                });
+
+                // Inicializar con inglés
+                loadTranslations('en')
+            });
+        </script>
