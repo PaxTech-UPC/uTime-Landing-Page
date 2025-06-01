@@ -185,3 +185,35 @@
                 loadTranslations('en')
             });
         </script>
+
+        <!-- CTA -->
+        <a href="https://upc-paxtech.github.io/Frontend-Web-Applications/"
+           class="ml-4 bg-purple-700 text-white font-semibold px-5 py-2.5 rounded-md shadow-md hover:bg-purple-800 transition duration-300" data-i18n="get_started">
+            Get Started
+        </a>
+    </nav>
+</header>
+
+<script>
+    const collapseBtn = document.getElementById('collapseNavbarBtn');
+    const restoreBtn = document.getElementById('restoreNavbarBtn');
+    const navbar = document.getElementById('navbarWrapper');
+
+    collapseBtn.addEventListener('click', () => {
+        // Oculta el navbar desplazándolo hacia arriba
+        navbar.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+
+        // Muestra el botón flotante bajando
+        restoreBtn.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-10');
+        restoreBtn.classList.add('translate-y-0');
+    });
+
+    restoreBtn.addEventListener('click', () => {
+        // Restaura el navbar bajando desde arriba
+        navbar.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+
+        // Oculta el botón flotante subiéndolo
+        restoreBtn.classList.add('opacity-0', 'pointer-events-none', '-translate-y-10');
+        restoreBtn.classList.remove('translate-y-0');
+    });
+</script>
