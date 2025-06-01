@@ -653,3 +653,252 @@
 
     </div>
 </section>
+
+<style>
+    @keyframes carousel-left {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+    @keyframes carousel-right {
+        0% { transform: translateX(-50%); }
+        100% { transform: translateX(0); }
+    }
+    .animate-carousel-left {
+        animation: carousel-left 60s linear infinite;
+    }
+    .animate-carousel-right {
+        animation: carousel-right 60s linear infinite;
+    }
+    .testimonial-card {
+        width: 300px;
+        background: #f9fafb;
+        padding: 1.5rem;
+        border-radius: 1rem;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+        font-size: 0.875rem;
+        line-height: 1.5;
+        color: #374151;
+        flex-shrink: 0;
+    }
+</style>
+
+<!-- FAQ Section -->
+<section id="faq" class="py-24 px-6 bg-gradient-to-b from-white to-purple-50">
+    <div class="max-w-4xl mx-auto rounded-3xl bg-white shadow-xl p-10 overflow-hidden">
+
+        <!-- Heading -->
+        <div class="text-center mb-12">
+            <div class="text-sm text-purple-600 font-medium mb-2 flex justify-center items-center gap-2" data-i18n="faq_title">
+                <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 20h9" />
+                </svg>
+                Frequently Asked Questions
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800" data-i18n="faq_name">Clear Your Doubts About uTime</h2>
+            <p class="text-gray-600 mt-2 max-w-2xl mx-auto" data-i18n="faq_subtitle">Here you’ll find answers to the most common questions about our platform for barbershops and beauty salons.</p>
+        </div>
+
+        <!-- Accordion Container -->
+        <div class="space-y-4 text-left" id="faq-accordion">
+
+            <!-- Item 1 -->
+            <div class="bg-gray-50 shadow-sm rounded-xl overflow-hidden transition-all duration-300">
+                <button class="w-full flex justify-between items-center px-5 py-4 text-left font-medium text-gray-800 focus:outline-none" data-i18n="faq_question1" data-toggle>
+                    Is uTime suitable for small barbershops or just for large businesses?
+                    <svg class="w-5 h-5 text-purple-600 transform transition-transform" data-icon fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="faq-content px-5 text-gray-600 transition-all duration-500 ease-in-out max-h-0 overflow-hidden" data-content data-i18n="faq_answer1">
+                    <p class="py-4">uTime is designed to adapt to businesses of any size, from solo barbers to salons with multiple team members.</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="bg-gray-50 shadow-sm rounded-xl overflow-hidden transition-all duration-300">
+                <button class="w-full flex justify-between items-center px-5 py-4 text-left font-medium text-gray-800 focus:outline-none" data-toggle data-i18n="faq_question2">
+                    Do I need an internet connection to use uTime?
+                    <svg class="w-5 h-5 text-purple-600 transform transition-transform" data-icon fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="faq-content px-5 text-gray-600 transition-all duration-500 ease-in-out max-h-0 overflow-hidden" data-content data-i18n="faq_answer2">
+                    <p class="py-4">Yes, uTime is a cloud-based platform, so it requires an internet connection to work properly and sync data in real time.</p>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="bg-gray-50 shadow-sm rounded-xl overflow-hidden transition-all duration-300">
+                <button class="w-full flex justify-between items-center px-5 py-4 text-left font-medium text-gray-800 focus:outline-none" data-toggle data-i18n="faq_question3">
+                    Does uTime help manage staff schedules and shifts?
+                    <svg class="w-5 h-5 text-purple-600 transform transition-transform" data-icon fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="faq-content px-5 text-gray-600 transition-all duration-500 ease-in-out max-h-0 overflow-hidden" data-content data-i18n="faq_answer3">
+                    <p class="py-4">Absolutely! uTime is designed to make it easy to organize shifts, manage schedules, and track staff attendance.</p>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="bg-gray-50 shadow-sm rounded-xl overflow-hidden transition-all duration-300">
+                <button class="w-full flex justify-between items-center px-5 py-4 text-left font-medium text-gray-800 focus:outline-none" data-toggle data-i18n="faq_question4">
+                    Is there a free trial to try uTime?
+                    <svg class="w-5 h-5 text-purple-600 transform transition-transform" data-icon fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="faq-content px-5 text-gray-600 transition-all duration-500 ease-in-out max-h-0 overflow-hidden" data-content data-i18n="faq_answer4">
+                    <p class="py-4">Yes, we offer a 14-day free trial so you can explore all uTime features without any commitment.</p>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="bg-gray-50 shadow-sm rounded-xl overflow-hidden transition-all duration-300">
+                <button class="w-full flex justify-between items-center px-5 py-4 text-left font-medium text-gray-800 focus:outline-none" data-toggle data-i18n="faq_question5">
+                    Does uTime help me manage client appointments?
+                    <svg class="w-5 h-5 text-purple-600 transform transition-transform" data-icon fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="faq-content px-5 text-gray-600 transition-all duration-500 ease-in-out max-h-0 overflow-hidden" data-content data-i18n="faq_answer5">
+                    <p class="py-4">Yes. uTime includes an intelligent booking system that allows your clients to book online and receive automatic reminders.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+    document.querySelectorAll('[data-toggle]').forEach(button => {
+        button.addEventListener('click', () => {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('[data-icon]');
+            const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+            // Cierra todos los contenidos abiertos
+            document.querySelectorAll('[data-content]').forEach(el => {
+                el.style.maxHeight = null;
+                const iconInside = el.previousElementSibling.querySelector('[data-icon]');
+                iconInside && iconInside.classList.remove('rotate-180');
+            });
+
+            // Si no estaba abierto, lo abre
+            if (!isOpen) {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                icon.classList.add('rotate-180');
+            }
+        });
+    });
+</script>
+
+<style>
+    .faq-content {
+        transition: max-height 0.5s ease;
+        overflow: hidden;
+        max-height: 0;
+    }
+
+    .rotate-180 {
+        transform: rotate(180deg);
+    }
+</style>
+
+
+
+<!-- Call to Action -->
+<section id="cta" class="text-center py-28 px-6 bg-gradient-to-b from-white to-purple-50">
+    <div class="max-w-3xl mx-auto">
+        <div class="text-sm text-purple-600 font-medium mb-4 inline-block px-4 py-1 bg-white shadow rounded-full" data-i18n="tag">
+            Take your barbershop or salon to the next level
+        </div>
+        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight" data-i18n="cta_title">
+            Ready to transform<br>your daily operations?
+        </h2>
+        <p class="text-gray-600 mt-6 mb-10" data-i18n="cta_subtitle">
+            Discover how uTime helps you manage appointments, shifts, and clients with ease. Start today and optimize your time like never before.
+        </p>
+        <a href="https://upc-paxtech.github.io/Frontend-Web-Applications/" class="inline-block px-8 py-4 text-white font-semibold rounded-full bg-gradient-to-r from-purple-600 to-purple-800 shadow-lg hover:from-purple-700 hover:to-purple-900 transition" data-i18n="cta_button">
+            Start for Free →
+        </a>
+    </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="bg-gradient-to-b from-purple-50 to-white text-sm text-gray-600">
+    <div class="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-5 gap-8">
+        <!-- Logo -->
+        <div class="md:col-span-1">
+            <h1 class="text-xl font-bold text-purple-700 mb-4">uTime</h1>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+            <h4 class="text-gray-800 font-semibold mb-3" data-i18n="footer_quick_links">Quick Links</h4>
+            <ul class="space-y-2">
+                <li><a href="#hero" class="hover:text-purple-600" data-i18n="footer_link1">Home</a></li>
+                <li><a href="#features" class="hover:text-purple-600" data-i18n="footer_link2">features</a></li>
+                <li><a href="#faq" class="hover:text-purple-600" data-i18n="footer_link3">FAQ</a></li>
+                <li><a href="https://upc-paxtech.github.io/Frontend-Web-Applications/" class="hover:text-purple-600" data-i18n="footer_link4">Support</a></li>
+            </ul>
+        </div>
+
+        <!-- Support -->
+        <div>
+            <h4 class="text-gray-800 font-semibold mb-3" data-i18n="footer_support">Support</h4>
+            <ul class="space-y-2">
+                <li><a href="https://upc-paxtech.github.io/Frontend-Web-Applications/" class="hover:text-purple-600" data-i18n="footer_support_link1">Help Center</a></li>
+                <li><a href="https://upc-paxtech.github.io/Frontend-Web-Applications/" class="hover:text-purple-600" data-i18n="footer_support_link2">Getting Started</a></li>
+                <li><a href="https://upc-paxtech.github.io/Frontend-Web-Applications/" class="hover:text-purple-600" data-i18n="footer_support_link3">Contact Support</a></li>
+                <li><a href="https://upc-paxtech.github.io/Frontend-Web-Applications/" class="hover:text-purple-600" data-i18n="footer_support_link4">Community Forums</a></li>
+                <li><a href="https://upc-paxtech.github.io/Frontend-Web-Applications/" class="hover:text-purple-600" data-i18n="footer_support_link5">Documentation</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Us -->
+        <div>
+            <h4 class="text-gray-800 font-semibold mb-3" data-i18n="footer_contact">Contact Us</h4>
+            <ul class="space-y-2">
+                <li data-i18n="footer_contact_info1">📧 utime@company.com</li>
+                <li data-i18n="footer_contact_info2">📞 (+51) 979 447 361</li>
+                <li data-i18n="footer_contact_info3">📍 Lima Lima Miraflores<br>Peru</li>
+            </ul>
+        </div>
+
+        <!-- Social -->
+        <div>
+            <h4 class="text-gray-800 font-semibold mb-3" data-i18n="footer_social">Social</h4>
+            <div class="flex space-x-3">
+                <a href="https://www.facebook.com/utime_upc" class="bg-purple-600 hover:bg-purple-700 text-white w-9 h-9 rounded-full flex items-center justify-center">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://x.com/utime_upc" class="bg-purple-600 hover:bg-purple-700 text-white w-9 h-9 rounded-full flex items-center justify-center">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/404/" class="bg-purple-600 hover:bg-purple-700 text-white w-9 h-9 rounded-full flex items-center justify-center">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.youtube.com/utime_upc" class="bg-purple-600 hover:bg-purple-700 text-white w-9 h-9 rounded-full flex items-center justify-center">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.instagram.com/utime_upc" class="bg-purple-600 hover:bg-purple-700 text-white w-9 h-9 rounded-full flex items-center justify-center">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="text-center border-t border-gray-200 py-4 text-xs text-gray-500" data-i18n="footer_copyright">
+        © 2025 uTime. All rights reserved.
+    </div>
+</footer>
+
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</body>
+
+</html>
+
